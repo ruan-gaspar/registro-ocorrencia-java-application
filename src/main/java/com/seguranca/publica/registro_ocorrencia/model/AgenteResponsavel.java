@@ -5,6 +5,4 @@ public class AgenteResponsavel {
     private String cargo;
     private String identificacao;
 
-
-
 }
