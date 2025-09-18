@@ -1,4 +1,10 @@
 package com.seguranca.publica.registro_ocorrencia.repository;
 
-public class TerceirosRepository {
+import com.seguranca.publica.registro_ocorrencia.model.Ocorrencia;
+import com.seguranca.publica.registro_ocorrencia.model.Terceiros;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.UUID;
+
+public interface TerceirosRepository extends JpaRepository<Terceiros, UUID> {
 }
