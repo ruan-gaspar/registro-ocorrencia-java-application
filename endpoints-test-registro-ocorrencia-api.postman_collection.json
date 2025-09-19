@@ -1,0 +1,655 @@
+{
+	"info": {
+		"_postman_id": "4395b116-ae11-4868-812a-72dc6355481d",
+		"name": "Registro Ocorrência API - Teste Direto",
+		"description": "Coleção para testar todos os endpoints CRUD do projeto Registro de Ocorrência com IDs e datas preenchidos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44972528"
+	},
+	"item": [
+		{
+			"name": "AgenteResponsavel",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"João da Silva\",\n  \"cargo\": \"Delegado\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/agentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agentes/11111111-1111-1111-1111-111111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agentes",
+								"11111111-1111-1111-1111-111111111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"João da Silva Updated\",\n  \"cargo\": \"Delegado Chefe\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/agentes/11111111-1111-1111-1111-111111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agentes",
+								"11111111-1111-1111-1111-111111111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/agentes/11111111-1111-1111-1111-111111111111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"agentes",
+								"11111111-1111-1111-1111-111111111111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delegacia",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Delegacia Central\",\n  \"delegadoResponsavel\": \"Maria Souza\",\n  \"endereco\": \"Rua Central, 100\",\n  \"telefone\": \"11999999999\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/delegacias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delegacias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/delegacias/22222222-2222-2222-2222-222222222222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delegacias",
+								"22222222-2222-2222-2222-222222222222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/delegacias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delegacias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Delegacia Central Atualizada\",\n  \"delegadoResponsavel\": \"Maria Souza Silva\",\n  \"endereco\": \"Rua Central, 101\",\n  \"telefone\": \"11988888888\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/delegacias/22222222-2222-2222-2222-222222222222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delegacias",
+								"22222222-2222-2222-2222-222222222222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/delegacias/22222222-2222-2222-2222-222222222222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"delegacias",
+								"22222222-2222-2222-2222-222222222222"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Noticiante",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Carlos Pereira\",\n  \"cpf\": \"12345678900\",\n  \"rg\": \"MG123456\",\n  \"idade\": 35,\n  \"email\": \"carlos@example.com\",\n  \"telefone\": \"11977777777\",\n  \"endereco\": \"Av. Brasil, 200\",\n  \"estadoCivil\": \"Solteiro\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/noticiantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"noticiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/noticiantes/33333333-3333-3333-3333-333333333333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"noticiantes",
+								"33333333-3333-3333-3333-333333333333"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/noticiantes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"noticiantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Carlos Pereira Jr.\",\n  \"cpf\": \"12345678900\",\n  \"rg\": \"MG123456\",\n  \"idade\": 36,\n  \"email\": \"carlosjr@example.com\",\n  \"telefone\": \"11977777778\",\n  \"endereco\": \"Av. Brasil, 201\",\n  \"estadoCivil\": \"Casado\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/noticiantes/33333333-3333-3333-3333-333333333333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"noticiantes",
+								"33333333-3333-3333-3333-333333333333"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/noticiantes/33333333-3333-3333-3333-333333333333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"noticiantes",
+								"33333333-3333-3333-3333-333333333333"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ocorrencia",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Roubo em loja\",\n  \"descricao\": \"Furtaram eletrônicos\",\n  \"categoria\": \"Roubo\",\n  \"numeroOcorrencia\": 101,\n  \"codigoOcorrencia\": 1001,\n  \"localOcorrencia\": \"Rua A, 50\",\n  \"statusConcluido\": false,\n  \"dataRegistro\": \"2025-09-19T10:00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ocorrencias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ocorrencias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ocorrencias/44444444-4444-4444-4444-444444444444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ocorrencias",
+								"44444444-4444-4444-4444-444444444444"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ocorrencias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ocorrencias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"titulo\": \"Roubo em loja atualizado\",\n  \"descricao\": \"Furtaram eletrônicos e dinheiro\",\n  \"categoria\": \"Roubo\",\n  \"numeroOcorrencia\": 101,\n  \"codigoOcorrencia\": 1001,\n  \"localOcorrencia\": \"Rua A, 50\",\n  \"statusConcluido\": true,\n  \"dataRegistro\": \"2025-09-19T10:30:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ocorrencias/44444444-4444-4444-4444-444444444444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ocorrencias",
+								"44444444-4444-4444-4444-444444444444"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ocorrencias/44444444-4444-4444-4444-444444444444",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ocorrencias",
+								"44444444-4444-4444-4444-444444444444"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Terceiros",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Ana Rodrigues\",\n  \"cpf\": \"98765432100\",\n  \"rg\": \"SP987654\",\n  \"idade\": 28,\n  \"telefone\": \"11966666666\",\n  \"endereco\": \"Rua B, 300\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/terceiros",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"terceiros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/terceiros/55555555-5555-5555-5555-555555555555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"terceiros",
+								"55555555-5555-5555-5555-555555555555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Ana Rodrigues Silva\",\n  \"cpf\": \"98765432100\",\n  \"rg\": \"SP987654\",\n  \"idade\": 29,\n  \"telefone\": \"11966666667\",\n  \"endereco\": \"Rua B, 301\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/terceiros/55555555-5555-5555-5555-555555555555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"terceiros",
+								"55555555-5555-5555-5555-555555555555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/terceiros/55555555-5555-5555-5555-555555555555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"terceiros",
+								"55555555-5555-5555-5555-555555555555"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "UUID",
+			"value": ""
+		},
+		{
+			"key": "UUID_AGENTE",
+			"value": ""
+		},
+		{
+			"key": "UUID_DELEGACIAS",
+			"value": ""
+		},
+		{
+			"key": "UUID_NOTICIANTE",
+			"value": ""
+		},
+		{
+			"key": "UUID_OCORRENCIA",
+			"value": ""
+		},
+		{
+			"key": "UUID_TERCEIROS",
+			"value": ""
+		}
+	]
+}
