@@ -1,222 +1,63 @@
-# registro-ocorrencia-java-application
+# Registro de Ocorrências
 
-# Ruan Nunes Gaspar - RM 559567
-
-## Projeto: Registro de Ocorrências
-
-### Descrição
-Este é um sistema desenvolvido em **Java com Spring Boot** para gerenciamento de ocorrências policiais. O projeto utiliza **Spring Data JPA** para persistência em banco de dados e possui suporte a **H2 (banco em memória)** para testes. Ele permite cadastrar, consultar e gerenciar ocorrências, noticiantes, terceiros, agentes responsáveis e delegacias.
+**Aluno:** Ruan Nunes Gaspar  
+**RM:** 559567
+**TURMA:** 2TDSPA
 
 ---
 
-## Base URL
-http://localhost:8080/api
+## 1. Apresentação do Projeto
 
-## 1. Agentes Responsáveis
+O projeto **Registro de Ocorrências** é uma aplicação web desenvolvida em **Spring Boot** que permite o gerenciamento de registros policiais e informações relacionadas a agentes, delegacias, noticiantes, ocorrências e terceiros envolvidos.  
 
-### Listar todos os agentes
-- **GET** `/agentes`
-- **Resposta:** Lista de agentes
+A aplicação utiliza **Spring Data JPA** para persistência em banco de dados **H2** (em memória) e disponibiliza endpoints REST para operações CRUD (Create, Read, Update, Delete). Além disso, fornece um console H2 para consulta direta dos dados.
 
-### Buscar agente por ID
-- **GET** `/agentes/{id}`
-- **Parâmetros:**  
-  - `id` (UUID) – ID do agente
-- **Resposta:** Objeto `AgenteResponsavel` ou 404 se não encontrado
+---
 
-### Cadastrar novo agente
-- **POST** `/agentes`
-- **Body (JSON):**
-```json
-{
-  "nome_completo": "Nome do Agente",
-  "cargo": "Cargo do Agente"
-}
-Resposta: Objeto AgenteResponsavel criado
+## 2. Tecnologias Utilizadas
 
-Atualizar agente
-PUT /agentes/{id}
+- Java 24
+- Spring Boot 3.5.5
+- Spring Data JPA
+- H2 Database
+- Maven
+- REST API
+- Postman (para testes)
 
-Parâmetros:
+---
 
-id (UUID) – ID do agente
+## 3. Endpoints da API
 
-{
-  "nome_completo": "Novo Nome",
-  "cargo": "Novo Cargo"
-}
-Resposta: Objeto atualizado ou 404 se não encontrado
+### 3.1 Agente Responsável
 
-Excluir agente
-DELETE /agentes/{id}
+| Método | URL | Descrição | Request Body |
+|--------|-----|-----------|--------------|
+| GET | `/api/agentes` | Lista todos os agentes | - |
+| GET | `/api/agentes/{id}` | Busca agente por ID | - |
+| POST | `/api/agentes` | Cadastra novo agente | JSON: `{"nomeCompleto":"", "cargo":""}` |
+| PUT | `/api/agentes/{id}` | Atualiza agente existente | JSON: `{"nomeCompleto":"", "cargo":""}` |
+| DELETE | `/api/agentes/{id}` | Remove agente | - |
 
-Parâmetros:
+---
 
-id (UUID) – ID do agente
+### 3.2 Delegacia
 
-Resposta: 204 No Content ou 404 se não encontrado
+| Método | URL | Descrição | Request Body |
+|--------|-----|-----------|--------------|
+| GET | `/api/delegacias` | Lista todas as delegacias | - |
+| GET | `/api/delegacias/{id}` | Busca delegacia por ID | - |
+| POST | `/api/delegacias` | Cadastra nova delegacia | JSON: `{"titulo":"", "delegadoResponsavel":"", "endereco":"", "telefone":""}` |
+| PUT | `/api/delegacias/{id}` | Atualiza delegacia existente | JSON: `{"titulo":"", "delegadoResponsavel":"", "endereco":"", "telefone":""}` |
+| DELETE | `/api/delegacias/{id}` | Remove delegacia | - |
 
-2. Delegacias
-Listar todas as delegacias
-GET /delegacias
+---
 
-Resposta: Lista de delegacias
+### 3.3 Noticiante
 
-Buscar delegacia por ID
-GET /delegacias/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: Objeto Delegacia ou 404
-
-Cadastrar nova delegacia
-POST /delegacias
-
-{
-  "titulo": "Delegacia Central",
-  "delegado_responsavel": "Nome do Delegado",
-  "endereco": "Endereço",
-  "telefone": "Telefone"
-}
-Resposta: Objeto Delegacia criado
-
-Atualizar delegacia
-PUT /delegacias/{id}
-
-Parâmetros: id (UUID)
-
-Body (JSON): mesmo formato do POST
-
-Resposta: Objeto atualizado ou 404
-
-Excluir delegacia
-DELETE /delegacias/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: 204 No Content ou 404
-
-3. Noticiantes
-Listar todos os noticiantes
-GET /noticiantes
-
-Resposta: Lista de noticiantes
-
-Buscar noticiante por ID
-GET /noticiantes/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: Objeto Noticiante ou 404
-
-Cadastrar noticiante
-POST /noticiantes
-
-{
-  "nome_completo": "Nome",
-  "cpf": "000.000.000-00",
-  "rg": "00.000.000-0",
-  "idade": 30,
-  "estado_civil": "Solteiro",
-  "telefone": "123456789",
-  "email": "email@exemplo.com",
-  "endereco": "Rua X, 123"
-}
-Resposta: Objeto Noticiante criado
-
-Atualizar noticiante
-PUT /noticiantes/{id}
-
-Parâmetros: id (UUID)
-
-Body (JSON): mesmo formato do POST
-
-Resposta: Objeto atualizado ou 404
-
-Excluir noticiante
-DELETE /noticiantes/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: 204 No Content ou 404
-
-4. Ocorrências
-Listar todas as ocorrências
-GET /ocorrencias
-
-Resposta: Lista de ocorrências
-
-Buscar ocorrência por ID
-GET /ocorrencias/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: Objeto Ocorrencia ou 404
-
-Cadastrar ocorrência
-POST /ocorrencias
-
-{
-  "codigo_ocorrencia": 123,
-  "numero_ocorrencia": 456,
-  "status_concluido": false,
-  "data_registro": "2025-09-19T10:00:00",
-  "categoria": "Roubo",
-  "descricao": "Descrição da ocorrência",
-  "local_ocorrencia": "Endereço",
-  "titulo": "Ocorrência X"
-}
-Resposta: Objeto Ocorrencia criado
-
-Atualizar ocorrência
-PUT /ocorrencias/{id}
-
-Parâmetros: id (UUID)
-
-Body (JSON): mesmo formato do POST
-
-Resposta: Objeto atualizado ou 404
-
-Excluir ocorrência
-DELETE /ocorrencias/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: 204 No Content ou 404
-
-5. Terceiros
-Buscar terceiro por ID
-GET /terceiros/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: Objeto Terceiros ou 404
-
-Cadastrar terceiro
-POST /terceiros
-
-{
-  "nome_completo": "Nome",
-  "cpf": "000.000.000-00",
-  "rg": "00.000.000-0",
-  "idade": 25,
-  "telefone": "123456789",
-  "endereco": "Rua X, 123"
-}
-Resposta: Objeto Terceiros criado
-
-Atualizar terceiro
-PUT /terceiros/{id}
-
-Parâmetros: id (UUID)
-
-Body (JSON): mesmo formato do POST
-
-Resposta: Objeto atualizado ou 404
-
-Excluir terceiro
-DELETE /terceiros/{id}
-
-Parâmetros: id (UUID)
-
-Resposta: 204 No Content ou 404
+| Método | URL | Descrição | Request Body |
+|--------|-----|-----------|--------------|
+| GET | `/api/noticiantes` | Lista todos os noticiantes | - |
+| GET | `/api/noticiantes/{id}` | Busca noticiante por ID | - |
+| POST | `/api/noticiantes` | Cadastra novo noticiante | JSON: `{"nomeCompleto":"", "cpf":"", "rg":"", "idade":0, "email":"", "telefone":"", "endereco":"", "estadoCivil":""}` |
+| PUT | `/api/noticiantes/{id}` | Atualiza noticiante existente | JSON igual ao POST |
+| DELETE | `/api/noticiantes/{id}` | Remove noticiante | - |
