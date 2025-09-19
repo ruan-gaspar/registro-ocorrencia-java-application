@@ -5,6 +5,7 @@ import com.seguranca.publica.registro_ocorrencia.service.TerceirosService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -17,7 +18,10 @@ public class TerceirosController {
         this.terceirosService = terceirosService;
     }
 
-
+    @GetMapping
+    public List<Terceiros> listarTodos() {
+        return  terceirosService.listarTodos();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Terceiros> buscarPorId(@PathVariable UUID id) {
