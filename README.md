@@ -63,7 +63,7 @@ A aplicação utiliza **Spring Data JPA** para persistência em banco de dados *
 | DELETE | `/api/noticiantes/{id}` | Remove noticiante | - |
 
 # Código Json para importação no Postman:
-
+'''
 {
   "info": {
     "name": "Registro Ocorrência API - Teste Direto",
@@ -296,3 +296,10 @@ A aplicação utiliza **Spring Data JPA** para persistência em banco de dados *
     }
   ]
 }
+'''
+
+
+
+
+
+
