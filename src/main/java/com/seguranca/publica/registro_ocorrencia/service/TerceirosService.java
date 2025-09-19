@@ -15,6 +15,10 @@ public class TerceirosService {
     public TerceirosService(TerceirosRepository terceirosRepository) {
         this.terceirosRepository = terceirosRepository;
     }
+    public List<Terceiros> listarTodos() {
+        return (List<Terceiros>) terceirosRepository.findAll();
+    }
+
     public Optional<Terceiros> buscarTerceirosPorId(UUID id) {
         return terceirosRepository.findById(id);
     }

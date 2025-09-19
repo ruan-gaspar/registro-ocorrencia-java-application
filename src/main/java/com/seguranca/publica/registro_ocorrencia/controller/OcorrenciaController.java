@@ -52,9 +52,4 @@ public class OcorrenciaController {
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
-    //Apenas Teste aleatório
-    @GetMapping
-    public String Ocorrencia() {
-        return "Ocorrência registrada.";
-    }
 }

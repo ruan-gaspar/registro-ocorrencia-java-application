@@ -1,8 +1,6 @@
 package com.seguranca.publica.registro_ocorrencia.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +10,21 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Table(name = "TERCEIROS")
 public class Terceiros {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+    @Column(nullable = false)
     private String nomeCompleto;
+    @Column(nullable = false)
     private String cpf;
+    @Column(nullable = false)
     private String rg;
+    @Column(nullable = false)
     private int idade;
+    @Column(nullable = false)
     private String endereco;
+    @Column(nullable = false)
     private String telefone;
 }

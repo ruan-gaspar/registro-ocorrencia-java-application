@@ -3,6 +3,8 @@ import com.seguranca.publica.registro_ocorrencia.model.Noticiante;
 import com.seguranca.publica.registro_ocorrencia.service.NoticianteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -14,6 +16,12 @@ public class NoticianteController {
     public NoticianteController(NoticianteService noticianteService) {
         this.noticianteService = noticianteService;
     }
+
+    @GetMapping
+    public List<Noticiante> listarTodos() {
+        return noticianteService.listarTodos();
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Noticiante> buscarNoticiantePorId(@PathVariable UUID id) {

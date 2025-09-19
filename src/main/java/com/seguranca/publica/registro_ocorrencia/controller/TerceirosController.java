@@ -18,6 +18,7 @@ public class TerceirosController {
     }
 
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Terceiros> buscarPorId(@PathVariable UUID id) {
         return terceirosService.buscarTerceirosPorId(id)

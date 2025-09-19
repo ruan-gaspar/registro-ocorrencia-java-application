@@ -17,6 +17,9 @@ public class NoticianteService {
     public NoticianteService(NoticianteRepository noticianteRepository) {
         this.noticianteRepository = noticianteRepository;
     }
+    public List<Noticiante> listarTodos() {
+        return (List<Noticiante>) noticianteRepository.findAll();
+    }
 
     public Optional<Noticiante> buscarNoticiantePorId(UUID id) {
         return noticianteRepository.findById(id);
