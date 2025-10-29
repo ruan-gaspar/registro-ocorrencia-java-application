@@ -39,7 +39,7 @@ public class NoticianteController {
         return noticianteService.buscarNoticiantePorId(id)
                 .map(existing -> {
                     noticiante.setId(id);
-                    Noticiante updated = noticianteService.atualizarCadsatroNoticiante(noticiante);
+                    Noticiante updated = noticianteService.atualizarCadastroNoticiante(noticiante);
                     return ResponseEntity.ok(updated);
                 })
                 .orElse(ResponseEntity.notFound().build());

@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Lista de Ocorrências</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<h2>Ocorrências</h2>
-<a href="/web/ocorrencias/novo">Nova Ocorrência</a>
-<ul>
-    <li th:each="o : ${ocorrencias}">
-        <a th:href="@{'/web/ocorrencias/' + ${o.id}}"
-           th:text="${o.titulo}"></a> -
-        <span th:text="${o.categoria}">Categoria</span> -
-        <span th:text="${#temporals.format(o.dataRegistro, 'dd/MM/yyyy HH:mm')}">Data</span>
-    </li>
-</ul>
-<a href="/">Voltar ao Menu</a>
+<div th:fragment="conteudo">
+    <h2>Lista de Ocorrências</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Data Registro</th>
+            <th>Número</th>
+            <th>Código</th>
+            <th>Local</th>
+            <th>Status</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ocorrencia : ${ocorrencias}">
+            <td th:text="${ocorrencia.id}"></td>
+            <td th:text="${ocorrencia.titulo}"></td>
+            <td th:text="${ocorrencia.descricao}"></td>
+            <td th:text="${ocorrencia.dataRegistro}"></td>
+            <td th:text="${ocorrencia.numeroOcorrencia}"></td>
+            <td th:text="${ocorrencia.codigoOcorrencia}"></td>
+            <td th:text="${ocorrencia.localOcorrencia}"></td>
+            <td th:text="${ocorrencia.statusConcluido ? 'Concluída' : 'Em aberto'}"></td>
+            <td th:text="${ocorrencia.categoria}"></td>
+            <td>
+                <a th:href="@{'/web/ocorrencias/' + ${ocorrencia.id}}">Detalhes</a> |
+                <a th:href="@{'/web/ocorrencias/editar/' + ${ocorrencia.id}}">Editar</a> |
+                <a th:href="@{'/web/ocorrencias/excluir/' + ${ocorrencia.id}}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/web/ocorrencias/novo" class="btn">Nova Ocorrência</a>
+</div>
 </body>
 </html>

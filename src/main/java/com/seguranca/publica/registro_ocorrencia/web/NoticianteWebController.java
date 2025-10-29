@@ -16,28 +16,63 @@ public class NoticianteWebController {
     @Autowired
     private NoticianteService noticianteService;
 
+    // LISTAR TODOS
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("noticiantes", noticianteService.listarTodos());
-        return "lista";
+        model.addAttribute("pageTitle", "Noticiantes - Sistema");
+        model.addAttribute("activePage", "noticiantes");
+        return "noticiantes/lista";
     }
 
+    // FORMULÁRIO NOVO
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("noticiante", new Noticiante());
-        return "form";
+        model.addAttribute("pageTitle", "Novo Noticiante - Sistema");
+        model.addAttribute("activePage", "noticiantes");
+        return "noticiantes/form";
     }
 
+    // SALVAR (NOVO OU EDITAR)
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Noticiante noticiante) {
-        noticianteService.cadastrarNoticiante(noticiante);
-        return "redirect:/web/noticiantes/noticiantes";
+        if (noticiante.getId() == null) {
+            noticianteService.cadastrarNoticiante(noticiante);
+        } else {
+            noticianteService.atualizarCadastroNoticiante(noticiante);
+        }
+        return "redirect:/web/noticiantes";
     }
 
+    // EDITAR
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable UUID id, Model model) {
+        var noticianteOpt = noticianteService.buscarNoticiantePorId(id);
+        if (noticianteOpt.isPresent()) {
+            model.addAttribute("noticiante", noticianteOpt.get());
+        } else {
+            model.addAttribute("noticiante", new Noticiante());
+        }
+        model.addAttribute("pageTitle", "Editar Noticiante - Sistema");
+        model.addAttribute("activePage", "noticiantes");
+        return "noticiantes/form";
+    }
+
+    // DETALHE
     @GetMapping("/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
-        var noticiante = noticianteService.buscarNoticiantePorId(id);
-        model.addAttribute("noticiante", noticiante.orElse(null));
-        return "detalhe";
+        var noticianteOpt = noticianteService.buscarNoticiantePorId(id);
+        model.addAttribute("noticiante", noticianteOpt.orElse(new Noticiante()));
+        model.addAttribute("pageTitle", "Detalhes do Noticiante - Sistema");
+        model.addAttribute("activePage", "noticiantes");
+        return "noticiantes/detalhe";
+    }
+
+    // EXCLUIR
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable UUID id) {
+        noticianteService.excluirCadastroNoticiante(id);
+        return "redirect:/web/noticiantes";
     }
 }

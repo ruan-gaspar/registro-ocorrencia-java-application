@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Lista de Terceiros</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<h2>Terceiros</h2>
-<a href="/web/terceiros/novo">Novo Terceiro</a>
-<ul>
-    <li th:each="t : ${terceiros}">
-        <a th:href="@{'/web/terceiros/' + ${t.id}}"
-           th:text="${t.nomeCompleto}"></a> -
-        <span>CPF: <span th:text="${t.cpf}"></span></span>
-    </li>
-</ul>
-<a href="/">Voltar ao Menu</a>
+<div th:fragment="conteudo">
+    <h2>Lista de Terceiros</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="terceiro : ${terceiros}">
+            <td th:text="${terceiro.id}"></td>
+            <td th:text="${terceiro.nomeCompleto}"></td>
+            <td th:text="${terceiro.cpf}"></td>
+            <td>
+                <a th:href="@{'/web/terceiros/editar/' + ${terceiro.id}}">Editar</a> |
+                <a th:href="@{'/web/terceiros/excluir/' + ${terceiro.id}}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/web/terceiros/novo" class="btn">Novo Terceiro</a>
+</div>
 </body>
 </html>

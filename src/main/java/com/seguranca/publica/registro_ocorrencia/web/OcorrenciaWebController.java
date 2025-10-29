@@ -19,25 +19,39 @@ public class OcorrenciaWebController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("ocorrencias", ocorrenciaService.listarTodos());
-        return "lista";
+        model.addAttribute("pageTitle", "Ocorrências - Sistema");
+        model.addAttribute("activePage", "ocorrencias");
+        return "ocorrencias/lista";
     }
 
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("ocorrencia", new Ocorrencia());
-        return "form";
+        model.addAttribute("pageTitle", "Nova Ocorrência - Sistema");
+        model.addAttribute("activePage", "ocorrencias");
+        return "ocorrencias/form";
     }
 
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Ocorrencia ocorrencia) {
         ocorrenciaService.criar(ocorrencia);
-        return "redirect:/web/ocorrencias/ocorrencias";
+        return "redirect:/web/ocorrencias";
     }
 
     @GetMapping("/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
         var ocorrencia = ocorrenciaService.buscarPorId(id);
-        model.addAttribute("ocorrencia", ocorrencia.orElse(null));
-        return "detalhe";
+        model.addAttribute("ocorrencia", ocorrencia.orElse(new Ocorrencia()));
+        model.addAttribute("pageTitle", "Detalhes da Ocorrência - Sistema");
+        model.addAttribute("activePage", "ocorrencias");
+        return "ocorrencias/detalhe";
+    }
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable UUID id, Model model) {
+        var ocorrencia = ocorrenciaService.buscarPorId(id);
+        model.addAttribute("ocorrencia", ocorrencia.orElse(new Ocorrencia()));
+        model.addAttribute("pageTitle", "Editar Ocorrência - Sistema");
+        model.addAttribute("activePage", "ocorrencias");
+        return "ocorrencias/form";
     }
 }

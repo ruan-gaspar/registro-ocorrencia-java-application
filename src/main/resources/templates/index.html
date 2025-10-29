@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Sistema de Registro de Ocorrência</title>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
-<h1>Sistema de Registro de Ocorrência</h1>
-<nav>
-    <ul>
-        <li><a href="/web/agentes">Agentes</a></li>
-        <li><a href="/web/delegacias">Delegacias</a></li>
-        <li><a href="/web/noticiantes">Noticiantes</a></li>
-        <li><a href="/web/ocorrencias">Ocorrências</a></li>
-        <li><a href="/web/terceiros">Terceiros</a></li>
-    </ul>
-</nav>
+
+<!-- Usa o layout, passando o fragmento de conteúdo -->
+<div th:replace="fragments/layout :: layout(~{::conteudo})">
+    <div th:fragment="conteudo">
+        <h2>Bem-vindo ao Sistema de Registro de Ocorrência</h2>
+        <p>Use o menu acima para navegar.</p>
+    </div>
+</div>
+
 </body>
 </html>

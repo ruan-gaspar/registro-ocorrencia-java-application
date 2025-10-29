@@ -16,6 +16,7 @@ public class AgenteResponsavel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @Column(nullable = false)
+
     private String nomeCompleto;
     @Column(nullable = false)
     private String cargo;

@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Lista de Delegacias</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<h2>Delegacias</h2>
-<a href="/web/delegacias/novo">Nova Delegacia</a>
-<ul>
-    <li th:each="d : ${delegacias}">
-        <a th:href="@{'/web/delegacias/' + ${d.id}}"
-           th:text="${d.titulo}"></a> -
-        <span>Delegado: <span th:text="${d.delegadoResponsavel}"></span></span>
-    </li>
-</ul>
-<a href="/">Voltar ao Menu</a>
+<div th:fragment="conteudo">
+    <h2>Lista de Delegacias</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Delegado Responsável</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="delegacia : ${delegacias}">
+            <td th:text="${delegacia.id}"></td>
+            <td th:text="${delegacia.titulo}"></td>
+            <td th:text="${delegacia.delegadoResponsavel}"></td>
+            <td th:text="${delegacia.endereco}"></td>
+            <td th:text="${delegacia.telefone}"></td>
+            <td>
+                <a th:href="@{'/web/delegacias/editar/' + ${delegacia.id}}">Editar</a> |
+                <a th:href="@{'/web/delegacias/excluir/' + ${delegacia.id}}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/web/delegacias/novo" class="btn">Nova Delegacia</a>
+</div>
 </body>
 </html>

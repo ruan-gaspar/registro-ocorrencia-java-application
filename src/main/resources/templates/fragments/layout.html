@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle} ?: 'Sistema de Registro'">Sistema de Registro</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<!-- Define o fragmento principal do layout -->
+<div th:fragment="layout(conteudo)">
+
+    <!-- Cabeçalho -->
+    <header th:replace="fragments/header :: header"></header>
+
+    <!-- Conteúdo dinâmico -->
+    <main>
+        <div th:replace="${conteudo}"></div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+</div>
+
+</body>
+</html>

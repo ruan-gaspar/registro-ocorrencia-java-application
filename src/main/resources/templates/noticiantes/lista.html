@@ -1,19 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Lista de Noticiantes</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<h2>Noticiantes</h2>
-<a href="/web/noticiantes/novo">Novo Noticiante</a>
-<ul>
-    <li th:each="n : ${noticiantes}">
-        <a th:href="@{'/web/noticiantes/' + ${n.id}}"
-           th:text="${n.nomeCompleto}"></a> -
-        <span>CPF: <span th:text="${n.cpf}"></span></span>
-    </li>
-</ul>
-<a href="/">Voltar ao Menu</a>
+<div th:fragment="conteudo">
+    <h2>Lista de Noticiantes</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome Completo</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="noticiante : ${noticiantes}">
+            <td th:text="${noticiante.id}"></td>
+            <td th:text="${noticiante.nomeCompleto}"></td>
+            <td th:text="${noticiante.cpf}"></td>
+            <td>
+                <a th:href="@{'/web/noticiantes/editar/' + ${noticiante.id}}">Editar</a> |
+                <a th:href="@{'/web/noticiantes/excluir/' + ${noticiante.id}}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/web/noticiantes/novo" class="btn">Novo Noticiante</a>
+</div>
 </body>
 </html>

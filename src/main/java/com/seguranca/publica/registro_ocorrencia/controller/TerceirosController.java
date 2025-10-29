@@ -49,7 +49,7 @@ public class TerceirosController {
     public ResponseEntity<Void> excluirCadastroTerceiros(@PathVariable UUID id) {
         return terceirosService.buscarTerceirosPorId(id)
                 .map(existing -> {
-                    terceirosService.excluirCadsatroTerceiros(id);
+                    terceirosService.excluirCadastroTerceiros(id);
                     return ResponseEntity.noContent().<Void>build();
                 })
                 .orElse(ResponseEntity.notFound().build());

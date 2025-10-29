@@ -15,7 +15,7 @@ import java.util.UUID;
 @Table(name = "OCORRENCIA")
 public class Ocorrencia {
     @Id
-    @GeneratedValue(generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private UUID id; // Vamos usar para localizar cada registro
     @Column(nullable = false)

@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header">
+    <h1>Sistema de Registro de Ocorrência</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}" th:classappend="${activePage == 'home'} ? ' active' : ''">Home</a></li>
+            <li><a th:href="@{/web/agentes}" th:classappend="${activePage == 'agentes'} ? ' active' : ''">Agentes</a></li>
+            <li><a th:href="@{/web/delegacias}" th:classappend="${activePage == 'delegacias'} ? ' active' : ''">Delegacias</a></li>
+            <li><a th:href="@{/web/noticiantes}" th:classappend="${activePage == 'noticiantes'} ? ' active' : ''">Noticiantes</a></li>
+            <li><a th:href="@{/web/ocorrencias}" th:classappend="${activePage == 'ocorrencias'} ? ' active' : ''">Ocorrências</a></li>
+            <li><a th:href="@{/web/terceiros}" th:classappend="${activePage == 'terceiros'} ? ' active' : ''">Terceiros</a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

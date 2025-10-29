@@ -1,5 +1,5 @@
 package com.seguranca.publica.registro_ocorrencia.service;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.seguranca.publica.registro_ocorrencia.model.Terceiros;
 import com.seguranca.publica.registro_ocorrencia.repository.TerceirosRepository;
 import org.springframework.stereotype.Service;
@@ -15,20 +15,24 @@ public class TerceirosService {
     public TerceirosService(TerceirosRepository terceirosRepository) {
         this.terceirosRepository = terceirosRepository;
     }
+    @Transactional
     public List<Terceiros> listarTodos() {
         return (List<Terceiros>) terceirosRepository.findAll();
     }
-
+    @Transactional
     public Optional<Terceiros> buscarTerceirosPorId(UUID id) {
         return terceirosRepository.findById(id);
     }
+    @Transactional
     public Terceiros cadastrarTerceiro(Terceiros terceiros) {
         return terceirosRepository.save(terceiros);
     }
+    @Transactional
     public Terceiros atualizarTerceiros(Terceiros terceiros) {
         return terceirosRepository.save(terceiros);
     }
-    public void excluirCadsatroTerceiros(UUID id) {
+    @Transactional
+    public void excluirCadastroTerceiros(UUID id) {
         terceirosRepository.deleteById(id);
     }
 }

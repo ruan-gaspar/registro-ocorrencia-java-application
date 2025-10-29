@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8" />
-    <title>Detalhes do Agente</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<h2>Detalhes do Agente</h2>
-<p><strong>Nome:</strong> <span th:text="${agente.nomeCompleto}"></span></p>
-<p><strong>Cargo:</strong> <span th:text="${agente.cargo}"></span></p>
-<a href="/web/agentes">Voltar à lista</a>
+<div th:fragment="conteudo">
+    <h2>Detalhes do Agente</h2>
+    <p><strong>ID:</strong> <span th:text="${agente.id}"></span></p>
+    <p><strong>Nome:</strong> <span th:text="${agente.nome}"></span></p>
+    <p><strong>Matrícula:</strong> <span th:text="${agente.matricula}"></span></p>
+    <a href="/web/agentes">Voltar à lista</a>
+</div>
 </body>
 </html>

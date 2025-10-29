@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
-<head>
-    <title>Agentes - Sistema</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<div>
-    <h2>Agentes Responsáveis</h2>
+<div th:fragment="conteudo">
+    <h2>Lista de Agentes</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="agente : ${agentes}">
+            <td th:text="${agente.id}"></td>
+            <td th:text="${agente.nome}"></td>
+            <td th:text="${agente.matricula}"></td>
+            <td>
+                <a th:href="@{'/web/agentes/' + ${agente.id}}">Detalhes</a> |
+                <a th:href="@{'/web/agentes/editar/' + ${agente.id}}">Editar</a> |
+                <a th:href="@{'/web/agentes/excluir/' + ${agente.id}}">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <a href="/web/agentes/novo" class="btn">Novo Agente</a>
-    <ul>
-        <li th:each="agente : ${agentes}">
-            <a th:href="@{'/web/agentes/' + ${agente.id}}"
-               th:text="${agente.nomeCompleto}"></a> -
-            <span th:text="${agente.cargo}"></span>
-        </li>
-    </ul>
-    <a href="/" class="btn">Voltar ao Menu</a>
 </div>
 </body>
 </html>
