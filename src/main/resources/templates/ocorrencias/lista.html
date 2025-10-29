@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Ocorrências</title>
+</head>
+<body>
+<h2>Ocorrências</h2>
+<a href="/web/ocorrencias/novo">Nova Ocorrência</a>
+<ul>
+    <li th:each="o : ${ocorrencias}">
+        <a th:href="@{'/web/ocorrencias/' + ${o.id}}"
+           th:text="${o.titulo}"></a> -
+        <span th:text="${o.categoria}">Categoria</span> -
+        <span th:text="${#temporals.format(o.dataRegistro, 'dd/MM/yyyy HH:mm')}">Data</span>
+    </li>
+</ul>
+<a href="/">Voltar ao Menu</a>
+</body>
+</html>

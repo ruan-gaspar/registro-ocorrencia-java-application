@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalhes do Noticiante</title>
+</head>
+<body>
+<h2>Detalhes do Noticiante</h2>
+<p><strong>Nome:</strong> <span th:text="${noticiante.nomeCompleto}"></span></p>
+<p><strong>CPF:</strong> <span th:text="${noticiante.cpf}"></span></p>
+<p><strong>RG:</strong> <span th:text="${noticiante.rg}"></span></p>
+<p><strong>Idade:</strong> <span th:text="${noticiante.idade}"></span></p>
+<p><strong>Endereço:</strong> <span th:text="${noticiante.endereco}"></span></p>
+<p><strong>Telefone:</strong> <span th:text="${noticiante.telefone}"></span></p>
+<p><strong>Email:</strong> <span th:text="${noticiante.email}"></span></p>
+<p><strong>Estado Civil:</strong> <span th:text="${noticiante.estadoCivil}"></span></p>
+<a href="/web/noticiantes">Voltar à lista</a>
+</body>
+</html>

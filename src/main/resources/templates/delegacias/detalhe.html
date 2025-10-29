@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalhes da Delegacia</title>
+</head>
+<body>
+<h2>Detalhes da Delegacia</h2>
+<p><strong>Título:</strong> <span th:text="${delegacia.titulo}"></span></p>
+<p><strong>Delegado Responsável:</strong> <span th:text="${delegacia.delegadoResponsavel}"></span></p>
+<p><strong>Endereço:</strong> <span th:text="${delegacia.endereco}"></span></p>
+<p><strong>Telefone:</strong> <span th:text="${delegacia.telefone}"></span></p>
+<a href="/web/delegacias">Voltar à lista</a>
+</body>
+</html>

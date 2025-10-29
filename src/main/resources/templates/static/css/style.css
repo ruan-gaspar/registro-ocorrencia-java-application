@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.header-title {
+    color: #004085;
+    margin-bottom: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #cce5ff;
+    border-radius: 5px;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #004085;
+    font-weight: bold;
+}
+
+.menu-link.active,
+.menu-link:hover {
+    color: #002752;
+}
+
+h2 {
+    color: #003366;
+}
+
+a {
+    color: #0069d9;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px 0;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form textarea,
+form input[type="datetime-local"] {
+    width: 300px;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.footer {
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+}

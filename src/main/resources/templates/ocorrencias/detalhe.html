@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalhes da Ocorrência</title>
+</head>
+<body>
+<h2>Detalhes da Ocorrência</h2>
+<p><strong>Título:</strong> <span th:text="${ocorrencia.titulo}"></span></p>
+<p><strong>Descrição:</strong> <span th:text="${ocorrencia.descricao}"></span></p>
+<p><strong>Data Registro:</strong> <span th:text="${#dates.format(ocorrencia.dataRegistro, 'dd/MM/yyyy HH:mm')}"></span></p>
+<p><strong>Número Ocorrência:</strong> <span th:text="${ocorrencia.numeroOcorrencia}"></span></p>
+<p><strong>Código Ocorrência:</strong> <span th:text="${ocorrencia.codigoOcorrencia}"></span></p>
+<p><strong>Local Ocorrência:</strong> <span th:text="${ocorrencia.localOcorrencia}"></span></p>
+<p><strong>Status Concluído:</strong> <span th:text="${ocorrencia.statusConcluido} ? 'Sim' : 'Não'"></span></p>
+<p><strong>Categoria:</strong> <span th:text="${ocorrencia.categoria}"></span></p>
+<a href="/web/ocorrencias">Voltar à lista</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Delegacias</title>
+</head>
+<body>
+<h2>Delegacias</h2>
+<a href="/web/delegacias/novo">Nova Delegacia</a>
+<ul>
+    <li th:each="d : ${delegacias}">
+        <a th:href="@{'/web/delegacias/' + ${d.id}}"
+           th:text="${d.titulo}"></a> -
+        <span>Delegado: <span th:text="${d.delegadoResponsavel}"></span></span>
+    </li>
+</ul>
+<a href="/">Voltar ao Menu</a>
+</body>
+</html>

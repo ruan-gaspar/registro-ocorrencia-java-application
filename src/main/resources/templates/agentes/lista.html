@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<head>
+    <title>Agentes - Sistema</title>
+</head>
+<body>
+<div>
+    <h2>Agentes Responsáveis</h2>
+    <a href="/web/agentes/novo" class="btn">Novo Agente</a>
+    <ul>
+        <li th:each="agente : ${agentes}">
+            <a th:href="@{'/web/agentes/' + ${agente.id}}"
+               th:text="${agente.nomeCompleto}"></a> -
+            <span th:text="${agente.cargo}"></span>
+        </li>
+    </ul>
+    <a href="/" class="btn">Voltar ao Menu</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Terceiros</title>
+</head>
+<body>
+<h2>Terceiros</h2>
+<a href="/web/terceiros/novo">Novo Terceiro</a>
+<ul>
+    <li th:each="t : ${terceiros}">
+        <a th:href="@{'/web/terceiros/' + ${t.id}}"
+           th:text="${t.nomeCompleto}"></a> -
+        <span>CPF: <span th:text="${t.cpf}"></span></span>
+    </li>
+</ul>
+<a href="/">Voltar ao Menu</a>
+</body>
+</html>

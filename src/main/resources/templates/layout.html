@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${pageTitle} ?: 'Sistema de Registro'">Sistema de Registro</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<header>
+    <h1 class="header-title">Sistema de Registro de Ocorrência</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/" class="menu-link" th:classappend="${activePage == 'home'} ? ' active'">Home</a></li>
+            <li><a href="/web/agentes" class="menu-link" th:classappend="${activePage == 'agentes'} ? ' active'">Agentes</a></li>
+            <li><a href="/web/delegacias" class="menu-link" th:classappend="${activePage == 'delegacias'} ? ' active'">Delegacias</a></li>
+            <li><a href="/web/noticiantes" class="menu-link" th:classappend="${activePage == 'noticiantes'} ? ' active'">Noticiantes</a></li>
+            <li><a href="/web/ocorrencias" class="menu-link" th:classappend="${activePage == 'ocorrencias'} ? ' active'">Ocorrências</a></li>
+            <li><a href="/web/terceiros" class="menu-link" th:classappend="${activePage == 'terceiros'} ? ' active'">Terceiros</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div th:fragment="content">
+        <!-- Aqui o conteúdo específico será inserido -->
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2025 Segurança Pública</p>
+</footer>
+</body>
+</html>

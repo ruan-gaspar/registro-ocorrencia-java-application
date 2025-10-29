@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Noticiantes</title>
+</head>
+<body>
+<h2>Noticiantes</h2>
+<a href="/web/noticiantes/novo">Novo Noticiante</a>
+<ul>
+    <li th:each="n : ${noticiantes}">
+        <a th:href="@{'/web/noticiantes/' + ${n.id}}"
+           th:text="${n.nomeCompleto}"></a> -
+        <span>CPF: <span th:text="${n.cpf}"></span></span>
+    </li>
+</ul>
+<a href="/">Voltar ao Menu</a>
+</body>
+</html>
