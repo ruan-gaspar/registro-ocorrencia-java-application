@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle} ?: 'Sistema de Registro'">Sistema de Registro</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
 <body>
 
 <!-- Usa o layout, passando o fragmento de conteúdo -->
