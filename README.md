@@ -87,7 +87,7 @@ O **Registro de Ocorrências** é uma aplicação web desenvolvida com **Spring 
 
 ### 4.2 Páginas Web com Thymeleaf
 
-- Página inicial com tema “**delegacia cyberpunk**”.
+- Página inicial com tema “**polícia brasileira**”.
 - Menu fixo superior com navegação entre seções.
 - Formulários de cadastro e edição com **CSS moderno e responsivo**.
 - Mensagens de sucesso e erro claras.
