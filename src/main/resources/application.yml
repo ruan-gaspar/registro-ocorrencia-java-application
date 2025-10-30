@@ -22,11 +22,14 @@ spring:
       enabled: true
 logging:
   level:
-    root: INFO
-    br: DEBUG
-    type:
-      descriptor:
-        sql:
-          BasicBinder: TRACE
+    org.springframework.security: DEBUG
+    org.springframework.security.authentication: DEBUG
+    org.springframework.security.core.userdetails: DEBUG
+  root: INFO
+  br: DEBUG
+type:
+  descriptor:
+    sql:
+      BasicBinder: TRACE
 
 
