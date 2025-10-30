@@ -28,9 +28,17 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()        // login público
-                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll() // recursos estáticos
+                        // Libera Swagger UI e recursos relacionados
+                        .requestMatchers(
+                                "/swagger-ui.html",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/webjars/**"
+                        ).permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                         .requestMatchers("/error").permitAll()
+                        // Protege páginas web e demais recursos
                         .requestMatchers("/web/**").authenticated()
                         .anyRequest().authenticated()
                 )
@@ -44,7 +52,6 @@ public class SecurityConfig {
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )
-
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
