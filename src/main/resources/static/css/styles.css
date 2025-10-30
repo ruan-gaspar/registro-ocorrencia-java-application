@@ -6,6 +6,8 @@
 }
 
 body {
+    background: url('./images/bg-policial.jpg') no-repeat center center fixed;
+    background-size: cover;
     background-color: #0b0b0b;
     color: #ffffff;
     line-height: 1.6;
@@ -13,9 +15,10 @@ body {
 }
 
 header {
-    background-color: #1a1a1a;
+    position: fixed;
+    background-color: transparent;
     padding: 15px 30px;
-    border-bottom: 2px solid #ffd700;
+    height: 70px;
 }
 
 header h1 {
@@ -34,7 +37,7 @@ header nav ul li a {
     color: #ffd700;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 5px 20px;
     transition: background 0.3s, color 0.3s;
 }
 
@@ -42,22 +45,20 @@ header nav ul li a:hover,
 header nav ul li a.active {
     background-color: #ffd700;
     color: #0b0b0b;
-    border-radius: 5px;
 }
 
 footer {
-    background-color: #1a1a1a;
+    background-color: transparent;
     padding: 15px 30px;
-    border-top: 2px solid #ffd700;
     text-align: center;
     color: #ffffff;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
 
 main {
-    padding: 30px;
+    padding-top: 150px;
 }
 
 h2 {
@@ -83,6 +84,17 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
 }
+
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    background-color: #0b0b0b; /* fundo preto */
+    color: #ffffff;            /* texto branco */
+}
+
 
 input[type="text"],
 input[type="number"],
@@ -118,6 +130,23 @@ button, .btn {
     text-decoration: none;
     display: inline-block;
 }
+.btn {
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #ffd700, #ffaa00);
+    color: #0b0b0b;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #ffaa00, #ffbb22);
+    box-shadow: 0 6px 12px rgba(255, 180, 0, 0.5);
+}
+
 
 button:hover,
 .btn:hover {
@@ -163,8 +192,23 @@ a:hover {
     form {
         padding: 15px;
     }
-
+c
     table th, table td {
         padding: 8px;
     }
 }
+.home-background {
+    background: url('./images/bg-policial.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    color: #ffd700; /* texto dourado para contraste */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 8px #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
