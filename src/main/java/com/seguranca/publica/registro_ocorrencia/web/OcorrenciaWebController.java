@@ -54,4 +54,10 @@ public class OcorrenciaWebController {
         model.addAttribute("activePage", "ocorrencias");
         return "ocorrencias/form";
     }
+    @DeleteMapping("/excluir/{id}")
+    public String excluirOcorrencia(@PathVariable UUID id) {
+        ocorrenciaService.excluir(id);
+        return "redirect:/web/ocorrencias";
+    }
 }
+
