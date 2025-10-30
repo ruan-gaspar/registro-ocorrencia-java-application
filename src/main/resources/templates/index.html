@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${pageTitle} ?: 'Sistema de Registro'">Sistema de Registro</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-
-<!-- Usa o layout, passando o fragmento de conteúdo -->
-<div th:replace="fragments/layout :: layout(~{::conteudo})">
-    <div th:fragment="conteudo">
-        <h2>Bem-vindo ao Sistema de Registro de Ocorrência</h2>
-        <p>Use o menu acima para navegar.</p>
-    </div>
+<div th:fragment="conteudo">
+    <h2>Bem-vindo ao Sistema de Registro de Ocorrência</h2>
+    <p>Use o menu acima para navegar.</p>
 </div>
-
 </body>
 </html>

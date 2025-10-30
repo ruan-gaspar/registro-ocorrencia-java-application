@@ -5,9 +5,9 @@
 <div th:fragment="conteudo">
     <h2>Detalhes do Agente</h2>
     <p><strong>ID:</strong> <span th:text="${agente.id}"></span></p>
-    <p><strong>Nome:</strong> <span th:text="${agente.nome}"></span></p>
-    <p><strong>Matrícula:</strong> <span th:text="${agente.matricula}"></span></p>
-    <a href="/web/agentes">Voltar à lista</a>
+    <p><strong>Nome:</strong> <span th:text="${agente.nomeCompleto}"></span></p>
+    <p><strong>Cargo:</strong> <span th:text="${agente.cargo}"></span></p>
+    <a href="/web/agentes" class="btn">Voltar à lista</a>
 </div>
 </body>
 </html>

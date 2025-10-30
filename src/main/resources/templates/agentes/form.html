@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${agente.id} != null ? 'Editar Agente' : 'Cadastrar Agente'">Agente</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<div class="container">
+<div th:fragment="conteudo">
     <h2 th:text="${agente.id} != null ? 'Editar Agente' : 'Cadastrar Agente'"></h2>
-
     <form th:action="@{/web/agentes/salvar}" th:object="${agente}" method="post">
         <input type="hidden" th:field="*{id}"/>
 

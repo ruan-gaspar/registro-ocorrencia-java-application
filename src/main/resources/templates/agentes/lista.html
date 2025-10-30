@@ -16,8 +16,8 @@
         <tbody>
         <tr th:each="agente : ${agentes}">
             <td th:text="${agente.id}"></td>
-            <td th:text="${agente.nome}"></td>
-            <td th:text="${agente.matricula}"></td>
+            <td th:text="${agente.nomeCompleto}"></td>
+            <td th:text="${agente.cargo}"></td>
             <td>
                 <a th:href="@{'/web/agentes/' + ${agente.id}}">Detalhes</a> |
                 <a th:href="@{'/web/agentes/editar/' + ${agente.id}}">Editar</a> |
