@@ -1,17 +1,10 @@
-<!-- <form >
-    <h2>Login - Sistema de Registro de Ocorrência</h2>
-    <input type="text" name="username" required />
-    <input type="password" name="password" required />
-    <button type="submit">Entrar</button>
-</form>
--->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
-<div th:fragment="conteudo">
+<div th:fragment="conteudo" class="autenticacao">
 
-    <h2>Login - Sistema de Registro de Ocorrência</h2>
+    <h2>Autenticação necessária!</h2>
 
     <form th:action="@{/login}" method="post" style="max-width: 400px; margin-top: 20px;">
         <div class="form-group">
@@ -36,7 +29,6 @@
             Logout efetuado com sucesso.
         </div>
     </form>
-
 </div>
 </body>
 </html>
