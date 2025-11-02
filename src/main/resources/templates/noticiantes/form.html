@@ -30,9 +30,10 @@
 
         <label>Estado Civil:</label>
         <input type="text" th:field="*{estadoCivil}" required /><br/>
-
+        <div class="form-group">
         <button type="submit">Salvar</button>
-        <a href="/web/noticiantes">Cancelar</a>
+        <a th:href="@{/web/noticiantes}" class="btn btn-secondary">Cancelar</a>
+        </div>
     </form>
 </div>
 </body>

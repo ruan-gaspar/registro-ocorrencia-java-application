@@ -5,13 +5,28 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background: url('./images/bg-policial.jpg') no-repeat center center fixed;
+/*body {
+    background-color: #202020;
     background-size: cover;
-    background-color: #0b0b0b;
     color: #ffffff;
     line-height: 1.6;
     min-height: 100vh;
+}*/
+body {
+    background-color: #000000;
+    background-image:
+            linear-gradient(90deg, transparent 50%, #414143 50.5%, transparent 51%),
+            linear-gradient(0deg, transparent 50%, #414143 50.5%, transparent 51%);
+    background-size: 720px 720px;
+    background-position: 0 0;
+    background-repeat: repeat;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
@@ -19,11 +34,16 @@ header {
     background-color: transparent;
     padding: 15px 30px;
     height: 70px;
+    width: 100%;
 }
 
 header h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
+    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
     font-size: 1.8rem;
-    color: #ffd700;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -31,20 +51,60 @@ header nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    border-bottom: 1px solid #414143;
 }
 
 header nav ul li a {
-    color: #ffd700;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     padding: 5px 20px;
     transition: background 0.3s, color 0.3s;
+
 }
 
-header nav ul li a:hover,
-header nav ul li a.active {
-    background-color: #ffd700;
-    color: #0b0b0b;
+.navbar-menu{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+.navbar-menu li {
+    position: relative;
+}
+.navbar-menu li a {
+    font-weight: bold;
+    padding: 5px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #161618;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 1px solid #414143;
+    border-radius: 4px;
+    top: 100%;
+    left: 0;
+    z-index: 1500;
+}
+.dropdown-content li a {
+    padding: 10px 15px;
+    color: #ffffff;
+    font-weight: normal;
+    white-space: nowrap;
+}
+.dropdown-content li a:hover {
+    background-color: #414143;
+    color: #fff;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 footer {
@@ -64,7 +124,10 @@ main {
 h2 {
     font-size: 1.6rem;
     margin-bottom: 15px;
-    color: #ffd700;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
+    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
 }
 
 p {
@@ -91,8 +154,8 @@ input[type="password"] {
     margin-bottom: 15px;
     border: 1px solid #ffd700;
     border-radius: 5px;
-    background-color: #0b0b0b; /* fundo preto */
-    color: #ffffff;            /* texto branco */
+    background-color: #0b0b0b;
+    color: #ffffff;
 }
 
 
@@ -115,63 +178,68 @@ input:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #ffa500;
+    border-color: #ffffff;
 }
 
 button, .btn {
     padding: 10px 20px;
-    background-color: #ffd700;
-    color: #0b0b0b;
+    background-color: #680000;
+    color: #ffffff;
     font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgb(27, 0, 0);
     transition: background 0.3s;
     text-decoration: none;
     display: inline-block;
 }
-.btn {
-    padding: 12px 24px;
-    background: linear-gradient(90deg, #ffd700, #ffaa00);
-    color: #0b0b0b;
+.btn-secondary {
+    max-width: 200px;
+    padding: 10px 20px;
+    background-color: #680000;
+    color: #ffffff;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 8px rgb(27, 0, 0);
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-    background: linear-gradient(90deg, #ffaa00, #ffbb22);
-    box-shadow: 0 6px 12px rgba(255, 180, 0, 0.5);
+    background-color: #ff0000;
+    box-shadow: 0 6px 12px rgb(255, 255, 255);
+    text-decoration: none;
 }
 
 
 button:hover,
 .btn:hover {
-    background-color: #ffa500;
+    background-color: #ff0000;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
     margin-bottom: 20px;
 }
 
 table th,
 table td {
     padding: 10px;
-    border: 1px solid #ffd700;
+    border: 3px transparent;
     text-align: left;
 }
 
 table th {
-    background-color: #1a1a1a;
+    background-color: #4a0000;
 }
 
 table tr:nth-child(even) {
     background-color: #0d0d0d;
+}
+table tr:nth-child(odd) {
+    background-color: #222222;
 }
 
 a {
@@ -192,17 +260,16 @@ a:hover {
     form {
         padding: 15px;
     }
-c
+
     table th, table td {
         padding: 8px;
     }
 }
 .home-background {
-    background: url('./images/bg-policial.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     overflow: hidden;
-    color: #ffd700; /* texto dourado para contraste */
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -210,6 +277,9 @@ c
     text-shadow: 2px 2px 8px #000000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
+    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
 }
 
 body.login-page .overlay {

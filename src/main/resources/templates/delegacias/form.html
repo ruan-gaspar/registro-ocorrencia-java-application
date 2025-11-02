@@ -17,8 +17,10 @@
         <label>Telefone:</label>
         <input type="text" th:field="*{telefone}" required /><br/>
 
-        <button type="submit">Salvar</button>
-        <a href="/web/delegacias">Cancelar</a>
+        <div class="form-group">
+            <button type="submit">Salvar</button>
+            <a th:href="@{/web/delegacias}" class="btn btn-secondary">Cancelar</a>
+        </div>
     </form>
 </div>
 </body>

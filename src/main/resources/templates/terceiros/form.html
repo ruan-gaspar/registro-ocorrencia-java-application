@@ -17,8 +17,10 @@
         <input type="text" th:field="*{endereco}" required /><br/>
         <label>Telefone:</label>
         <input type="text" th:field="*{telefone}" required /><br/>
+        <div class="form-group">
         <button type="submit">Salvar</button>
-        <a href="/web/terceiros">Cancelar</a>
+        <a th:href="@{/web/terceiros}" class="btn btn-secondary">Cancelar</a>
+        </div>
     </form>
 </div>
 </body>
