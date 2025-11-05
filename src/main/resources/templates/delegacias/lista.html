@@ -3,33 +3,35 @@
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
 <div th:fragment="conteudo">
-    <h2>Lista de Delegacias</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Delegado Responsável</th>
-            <th>Endereço</th>
-            <th>Telefone</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="delegacia : ${delegacias}">
-            <td th:text="${delegacia.id}"></td>
-            <td th:text="${delegacia.titulo}"></td>
-            <td th:text="${delegacia.delegadoResponsavel}"></td>
-            <td th:text="${delegacia.endereco}"></td>
-            <td th:text="${delegacia.telefone}"></td>
-            <td>
-                <a th:href="@{'/web/delegacias/editar/' + ${delegacia.id}}">Editar</a> |
-                <a th:href="@{'/web/delegacias/excluir/' + ${delegacia.id}}">Excluir</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <a href="/web/delegacias/novo" class="btn">Nova Delegacia</a>
+    <div class="lista-container">
+        <h2>Lista de Delegacias</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Delegado Responsável</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="delegacia : ${delegacias}">
+                <td th:text="${delegacia.id}"></td>
+                <td th:text="${delegacia.titulo}"></td>
+                <td th:text="${delegacia.delegadoResponsavel}"></td>
+                <td th:text="${delegacia.endereco}"></td>
+                <td th:text="${delegacia.telefone}"></td>
+                <td>
+                    <a th:href="@{'/web/delegacias/editar/' + ${delegacia.id}}">Editar</a> |
+                    <a th:href="@{'/web/delegacias/excluir/' + ${delegacia.id}}">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/web/delegacias/novo" class="btn btn-floating">Nova Delegacia</a>
+    </div>
 </div>
 </body>
 </html>

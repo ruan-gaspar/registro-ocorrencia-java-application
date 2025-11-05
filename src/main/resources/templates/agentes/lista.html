@@ -3,7 +3,7 @@
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
 <div th:fragment="conteudo">
-    <div class="lista-agentes-container">
+    <div class="lista-container">
         <h2>Lista de Agentes</h2>
         <table>
             <thead>
@@ -28,7 +28,7 @@
             </tbody>
         </table>
     </div>
-    <a href="/web/agentes/novo" class="btn novo-agente-floating">Novo Agente</a>
+    <a href="/web/agentes/novo" class="btn btn-floating">Novo Agente</a>
 </div>
 </body>
 </html>

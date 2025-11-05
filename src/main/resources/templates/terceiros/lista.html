@@ -3,29 +3,31 @@
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
 <div th:fragment="conteudo">
-    <h2>Lista de Terceiros</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome Completo</th>
-            <th>CPF</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="terceiro : ${terceiros}">
-            <td th:text="${terceiro.id}"></td>
-            <td th:text="${terceiro.nomeCompleto}"></td>
-            <td th:text="${terceiro.cpf}"></td>
-            <td>
-                <a th:href="@{'/web/terceiros/editar/' + ${terceiro.id}}">Editar</a> |
-                <a th:href="@{'/web/terceiros/excluir/' + ${terceiro.id}}">Excluir</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <a href="/web/terceiros/novo" class="btn">Novo Terceiro</a>
+    <div class="lista-container">
+        <h2>Lista de Terceiros</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome Completo</th>
+                <th>CPF</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="terceiro : ${terceiros}">
+                <td th:text="${terceiro.id}"></td>
+                <td th:text="${terceiro.nomeCompleto}"></td>
+                <td th:text="${terceiro.cpf}"></td>
+                <td>
+                    <a th:href="@{'/web/terceiros/editar/' + ${terceiro.id}}">Editar</a> |
+                    <a th:href="@{'/web/terceiros/excluir/' + ${terceiro.id}}">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/web/terceiros/novo" class="btn btn-floating">Novo Terceiro</a>
+    </div>
 </div>
 </body>
 </html>

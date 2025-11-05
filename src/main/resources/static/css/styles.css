@@ -219,13 +219,13 @@ button:hover,
     background-color: #ff0000;
 }
 
-.novo-agente-floating {
+.btn-floating {
     position: fixed;
     right: 32px;
     top: 100px;
     z-index: 1100;
 }
-.lista-agentes-container {
+.lista-container {
     max-height: calc(100vh - 150px);
     overflow-y: auto;
     padding-right: 10px;
