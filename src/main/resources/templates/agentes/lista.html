@@ -3,30 +3,32 @@
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body>
 <div th:fragment="conteudo">
-    <h2>Lista de Agentes</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Matrícula</th>
-            <th>Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="agente : ${agentes}">
-            <td th:text="${agente.id}"></td>
-            <td th:text="${agente.nomeCompleto}"></td>
-            <td th:text="${agente.cargo}"></td>
-            <td>
-                <a th:href="@{'/web/agentes/' + ${agente.id}}">Detalhes</a> |
-                <a th:href="@{'/web/agentes/editar/' + ${agente.id}}">Editar</a> |
-                <a th:href="@{'/web/agentes/excluir/' + ${agente.id}}">Excluir</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <a href="/web/agentes/novo" class="btn">Novo Agente</a>
+    <div class="lista-agentes-container">
+        <h2>Lista de Agentes</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="agente : ${agentes}">
+                <td th:text="${agente.id}"></td>
+                <td th:text="${agente.nomeCompleto}"></td>
+                <td th:text="${agente.cargo}"></td>
+                <td>
+                    <a th:href="@{'/web/agentes/' + ${agente.id}}">Detalhes</a> |
+                    <a th:href="@{'/web/agentes/editar/' + ${agente.id}}">Editar</a> |
+                    <a th:href="@{'/web/agentes/excluir/' + ${agente.id}}">Excluir</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/web/agentes/novo" class="btn novo-agente-floating">Novo Agente</a>
 </div>
 </body>
 </html>

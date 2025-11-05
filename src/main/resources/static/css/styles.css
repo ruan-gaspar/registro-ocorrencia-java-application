@@ -40,8 +40,8 @@ header {
 header h1 {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
-    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     font-size: 1.8rem;
     color: #ffffff;
     margin-bottom: 10px;
@@ -102,7 +102,7 @@ header nav ul li a {
     color: #fff;
 }
 
-/* Show dropdown on hover */
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -126,8 +126,8 @@ h2 {
     margin-bottom: 15px;
     color: #ffffff;
     font-weight: 700;
-    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
-    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 p {
@@ -219,6 +219,20 @@ button:hover,
     background-color: #ff0000;
 }
 
+.novo-agente-floating {
+    position: fixed;
+    right: 32px;
+    top: 100px;
+    z-index: 1100;
+}
+.lista-agentes-container {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+
 table {
     width: 100%;
     margin-bottom: 20px;
@@ -278,8 +292,8 @@ a:hover {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
     font-weight: 700;
-    letter-spacing: 0.05em; /* para dar espaçamento similar ao CIA */
-    text-transform: uppercase; /* Opcional, para títulos em caixa alta */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 body.login-page .overlay {
