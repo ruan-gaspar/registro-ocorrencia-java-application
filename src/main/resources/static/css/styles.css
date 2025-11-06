@@ -78,6 +78,7 @@ header nav ul li a {
     text-decoration: none;
     display: block;
     transition: background 0.3s, color 0.3s;
+
 }
 .dropdown-content {
     display: none;

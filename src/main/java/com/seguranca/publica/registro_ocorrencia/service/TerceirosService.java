@@ -20,6 +20,10 @@ public class TerceirosService {
         return (List<Terceiros>) terceirosRepository.findAll();
     }
     @Transactional
+    public List<Terceiros> buscarPorNome(String nome) {
+        return terceirosRepository.findByNomeCompletoContainingIgnoreCase(nome);
+    }
+    @Transactional
     public Optional<Terceiros> buscarTerceirosPorId(UUID id) {
         return terceirosRepository.findById(id);
     }

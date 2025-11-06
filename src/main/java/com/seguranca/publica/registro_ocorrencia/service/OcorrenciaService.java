@@ -20,6 +20,10 @@ public class OcorrenciaService {
         return ocorrenciaRepository.findAll();
     }
     @Transactional
+    public List<Ocorrencia> buscarPorTitulo(String titulo) {
+        return ocorrenciaRepository.findByTituloContainingIgnoreCase(titulo);
+    }
+    @Transactional
     public Optional<Ocorrencia> buscarPorId(UUID id) {
         return ocorrenciaRepository.findById(id);
     }

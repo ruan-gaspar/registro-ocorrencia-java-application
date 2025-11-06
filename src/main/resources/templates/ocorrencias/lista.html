@@ -40,7 +40,17 @@
             </tbody>
         </table>
 
-        <a th:href="@{/web/ocorrencias/novo}" class="btn btn-floating">Nova Ocorrência</a>
+
+        <div class="actions-bar">
+            <form th:action="@{/web/ocorrencias}" method="get" class="search">
+                <input type="text" name="titulo" placeholder="Buscar por título"
+                       th:value="${titulo}"/>
+                <button type="submit" class="btn btn-buscar">Buscar</button>
+            </form>
+            <a th:href="@{/web/ocorrencias/novo}" class="btn btn-floating" style="padding-left: 15px ">Nova Ocorrência</a>
+        </div>
+
+    </div>
     </div>
 </div>
 </body>

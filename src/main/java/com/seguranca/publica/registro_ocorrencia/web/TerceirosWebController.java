@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -16,16 +17,23 @@ public class TerceirosWebController {
     @Autowired
     private TerceirosService terceirosService;
 
-    // LISTAR TODOS
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("terceiros", terceirosService.listarTodos());
+    public String listar(@RequestParam(required = false) String nome, Model model) {
+        List<Terceiros> terceiros;
+
+        if (nome != null && !nome.isBlank()) {
+            terceiros = terceirosService.buscarPorNome(nome);
+        } else {
+            terceiros = terceirosService.listarTodos();
+        }
+
+        model.addAttribute("terceiros", terceiros);
         model.addAttribute("pageTitle", "Terceiros - Sistema");
         model.addAttribute("activePage", "terceiros");
+        model.addAttribute("nome", nome);
         return "terceiros/lista";
     }
 
-    // FORMULÁRIO NOVO
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("terceiro", new Terceiros());
@@ -34,7 +42,6 @@ public class TerceirosWebController {
         return "terceiros/form";
     }
 
-    // SALVAR (NOVO OU EDITAR)
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Terceiros terceiro) {
         if (terceiro.getId() == null) {
@@ -45,7 +52,6 @@ public class TerceirosWebController {
         return "redirect:/web/terceiros";
     }
 
-    // EDITAR
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable UUID id, Model model) {
         var terceiroOpt = terceirosService.buscarTerceirosPorId(id);
@@ -55,7 +61,6 @@ public class TerceirosWebController {
         return "terceiros/form";
     }
 
-    // DETALHE
     @GetMapping("/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
         var terceiroOpt = terceirosService.buscarTerceirosPorId(id);
@@ -65,7 +70,6 @@ public class TerceirosWebController {
         return "terceiros/detalhe";
     }
 
-    // EXCLUIR
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable UUID id) {
         terceirosService.excluirCadastroTerceiros(id);

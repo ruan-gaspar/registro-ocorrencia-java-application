@@ -1,5 +1,6 @@
 package com.seguranca.publica.registro_ocorrencia.web;
 
+import com.seguranca.publica.registro_ocorrencia.model.Agente;
 import com.seguranca.publica.registro_ocorrencia.model.Noticiante;
 import com.seguranca.publica.registro_ocorrencia.service.NoticianteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -16,16 +19,22 @@ public class NoticianteWebController {
     @Autowired
     private NoticianteService noticianteService;
 
-    // LISTAR TODOS
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("noticiantes", noticianteService.listarTodos());
+    public String listar(@RequestParam(required = false) String nome, Model model) {
+        List<Noticiante> noticiantes;
+
+        if (nome != null && !nome.isBlank()) {
+            noticiantes = noticianteService.buscarNoticiantePorNome(nome);
+        } else {
+            noticiantes = noticianteService.listarTodos();
+        }
+        model.addAttribute("noticiantes", noticiantes);
         model.addAttribute("pageTitle", "Noticiantes - Sistema");
         model.addAttribute("activePage", "noticiantes");
+        model.addAttribute("nome", nome);
         return "noticiantes/lista";
     }
 
-    // FORMULÁRIO NOVO
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("noticiante", new Noticiante());
@@ -34,7 +43,6 @@ public class NoticianteWebController {
         return "noticiantes/form";
     }
 
-    // SALVAR (NOVO OU EDITAR)
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Noticiante noticiante) {
         if (noticiante.getId() == null) {
@@ -45,7 +53,6 @@ public class NoticianteWebController {
         return "redirect:/web/noticiantes";
     }
 
-    // EDITAR
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable UUID id, Model model) {
         var noticianteOpt = noticianteService.buscarNoticiantePorId(id);
@@ -59,7 +66,6 @@ public class NoticianteWebController {
         return "noticiantes/form";
     }
 
-    // DETALHE
     @GetMapping("/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
         var noticianteOpt = noticianteService.buscarNoticiantePorId(id);
@@ -69,7 +75,6 @@ public class NoticianteWebController {
         return "noticiantes/detalhe";
     }
 
-    // EXCLUIR
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable UUID id) {
         noticianteService.excluirCadastroNoticiante(id);

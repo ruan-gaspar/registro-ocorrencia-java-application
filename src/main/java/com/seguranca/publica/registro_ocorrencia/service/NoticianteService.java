@@ -1,4 +1,6 @@
 package com.seguranca.publica.registro_ocorrencia.service;
+import com.seguranca.publica.registro_ocorrencia.model.Agente;
+import com.seguranca.publica.registro_ocorrencia.repository.AgenteRepository;
 import org.springframework.transaction.annotation.Transactional;
 import com.seguranca.publica.registro_ocorrencia.model.Noticiante;
 import com.seguranca.publica.registro_ocorrencia.model.Ocorrencia;
@@ -20,6 +22,11 @@ public class NoticianteService {
     @Transactional
     public List<Noticiante> listarTodos() {
         return (List<Noticiante>) noticianteRepository.findAll();
+    }
+
+    @Transactional
+    public List<Noticiante> buscarNoticiantePorNome(String nome) {
+        return noticianteRepository.findByNomeCompletoContainingIgnoreCase(nome);
     }
     @Transactional
     public Optional<Noticiante> buscarNoticiantePorId(UUID id) {

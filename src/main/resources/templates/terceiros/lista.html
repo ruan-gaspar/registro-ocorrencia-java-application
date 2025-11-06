@@ -26,6 +26,13 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    <div class="actions-bar">
+        <form th:action="@{/web/terceiros}" method="get" class="search">
+            <input type="text" name="nome" placeholder="Buscar terceiros por nome"
+                   th:value="${nome}" />
+            <button type="submit" class="btn btn-buscar">Buscar</button>
+        </form>
         <a href="/web/terceiros/novo" class="btn btn-floating">Novo Terceiro</a>
     </div>
 </div>

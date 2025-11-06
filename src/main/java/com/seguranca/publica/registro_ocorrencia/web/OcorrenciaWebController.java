@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -17,12 +18,21 @@ public class OcorrenciaWebController {
     private OcorrenciaService ocorrenciaService;
 
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("ocorrencias", ocorrenciaService.listarTodos());
+    public String listar(@RequestParam(required = false) String titulo, Model model) {
+        List<Ocorrencia> ocorrencias;
+
+        if (titulo != null && !titulo.isBlank()) {
+            ocorrencias = ocorrenciaService.buscarPorTitulo(titulo);
+        } else {
+            ocorrencias = ocorrenciaService.listarTodos();
+        }
+        model.addAttribute("ocorrencias", ocorrencias);
         model.addAttribute("pageTitle", "Ocorrências - Sistema");
         model.addAttribute("activePage", "ocorrencias");
+        model.addAttribute("titulo", titulo);
         return "ocorrencias/lista";
     }
+
 
     @GetMapping("/novo")
     public String novo(Model model) {
