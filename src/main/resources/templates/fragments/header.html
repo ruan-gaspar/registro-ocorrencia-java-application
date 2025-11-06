@@ -10,40 +10,40 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn" th:href="@{/web/agentes}" th:classappend="${activePage == 'agentes'} ? ' active' : ''">Agentes</a>
                 <ul class="dropdown-content">
-                    <li><a th:href="@{web/agentes/novo}">Cadastrar</a></li>
-                    <li><a th:href="@{web/agentes}">Buscar</a></li>
+                    <li><a th:href="@{/web/agentes/novo}">Cadastrar</a></li>
+                    <li><a th:href="@{/web/agentes}">Buscar</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a th:href="@{/web/delegacias}" th:classappend="${activePage == 'delegacias'} ? ' active' : ''">Delegacias</a>
                 <ul class="dropdown-content">
-                    <li><a th:href="@{web/delegacias/novo}">Cadastrar</a></li>
-                    <li><a th:href="@{web/delegacias}">Buscar</a></li>
+                    <li><a th:href="@{/web/delegacias/novo}">Cadastrar</a></li>
+                    <li><a th:href="@{/web/delegacias}">Buscar</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a th:href="@{/web/noticiantes}" th:classappend="${activePage == 'noticiantes'} ? ' active' : ''">Noticiantes</a>
                 <ul class="dropdown-content">
-                    <li><a th:href="@{web/noticiantes/novo}">Cadastrar</a></li>
-                    <li><a th:href="@{web/noticiantes}">Buscar</a></li>
+                    <li><a th:href="@{/web/noticiantes/novo}">Cadastrar</a></li>
+                    <li><a th:href="@{/web/noticiantes}">Buscar</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a th:href="@{/web/ocorrencias}" th:classappend="${activePage == 'ocorrencias'} ? ' active' : ''">Ocorrências</a>
                 <ul class="dropdown-content">
-                    <li><a th:href="@{web/ocorrencias/novo}">Cadastrar</a></li>
-                    <li><a th:href="@{web/ocorrencias}">Buscar</a></li>
+                    <li><a th:href="@{/web/ocorrencias/novo}">Cadastrar</a></li>
+                    <li><a th:href="@{/web/ocorrencias}">Buscar</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
                 <a th:href="@{/web/terceiros}" th:classappend="${activePage == 'terceiros'} ? ' active' : ''">Terceiros</a>
                 <ul class="dropdown-content">
-                    <li><a th:href="@{web/terceiros/novo}">Cadastrar</a></li>
-                    <li><a th:href="@{web/terceiros}">Buscar</a></li>
+                    <li><a th:href="@{/web/terceiros/novo}">Cadastrar</a></li>
+                    <li><a th:href="@{/web/terceiros}">Buscar</a></li>
                 </ul>
             </li>
         </ul>
