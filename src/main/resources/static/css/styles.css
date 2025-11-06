@@ -226,6 +226,47 @@ button:hover,
     top: 100px;
     z-index: 1100;
 }
+
+.actions-bar {
+    position: fixed;
+    top: 100px;
+    right: 200px;
+    left: 32px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: flex-end;
+}
+
+.search input[type="text"] {
+    flex-grow: 1;
+    border-radius: 5px;
+    border: 1px solid #ff0000;
+    background-color: #0b0b0b;
+    color: #fff;
+    text-align: center;
+    margin: 0 10px 0 5px;
+}
+.search {
+    width: 300px;
+    justify-content: center;
+    display: flex;
+    padding: 5px 5px 5px 5px;
+}
+
+@media (max-width: 768px) {
+    .actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+        top: 80px;
+    }
+
+    .btn-floating {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
 .lista-container {
     max-height: calc(100vh - 150px - 70px);
     overflow-y: auto;

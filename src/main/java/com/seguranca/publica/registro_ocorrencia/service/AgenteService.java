@@ -19,6 +19,12 @@ public class AgenteService {
     public List<Agente> listarAgente() {
         return agenteRepository.findAll();
     }
+
+    @Transactional
+    public List<Agente> buscarPorNome(String nome) {
+        return agenteRepository.findByNomeCompletoContainingIgnoreCase(nome);
+    }
+
     @Transactional
     public Optional<Agente> buscarAgentePorId(UUID id) {
         return agenteRepository.findById(id);

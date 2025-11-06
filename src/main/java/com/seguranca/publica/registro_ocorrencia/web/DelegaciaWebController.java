@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -17,10 +18,19 @@ public class DelegaciaWebController {
     private DelegaciaService delegaciaService;
 
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("delegacias", delegaciaService.listarTodasDelegacias());
+    public String listar(@RequestParam(required = false) String nome, Model model) {
+        List<Delegacia> delegacias;
+
+        if (nome != null && !nome.isBlank()) {
+            delegacias = delegaciaService.buscarDelegaciaPorNome(nome);
+        } else {
+            delegacias = delegaciaService.listarTodasDelegacias();
+        }
+
+        model.addAttribute("delegacias", delegacias);
         model.addAttribute("pageTitle", "Delegacias - Sistema");
         model.addAttribute("activePage", "delegacias");
+        model.addAttribute("nome", nome);
         return "delegacias/lista";
     }
 

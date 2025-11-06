@@ -1,4 +1,5 @@
 package com.seguranca.publica.registro_ocorrencia.service;
+import com.seguranca.publica.registro_ocorrencia.model.Agente;
 import org.springframework.transaction.annotation.Transactional;
 import com.seguranca.publica.registro_ocorrencia.model.Delegacia;
 import com.seguranca.publica.registro_ocorrencia.model.Ocorrencia;
@@ -24,6 +25,10 @@ public class DelegaciaService {
     @Transactional
     public Optional<Delegacia> buscarDelegaciaPorId(UUID id) {
         return delegaciaRepository.findById(id);
+    }
+    @Transactional
+    public List<Delegacia> buscarDelegaciaPorNome(String nome) {
+        return delegaciaRepository.findByTituloContainingIgnoreCase(nome);
     }
     @Transactional
     public Delegacia cadastrarDelegacia(Delegacia delegacia) {

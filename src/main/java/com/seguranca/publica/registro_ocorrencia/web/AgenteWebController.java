@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -16,16 +17,25 @@ public class AgenteWebController {
     @Autowired
     private AgenteService agenteService;
 
-    // Lista todos os agentes
     @GetMapping
-    public String listar(Model model) {
-        model.addAttribute("agentes", agenteService.listarAgente());
+    public String listar(@RequestParam(required = false) String nome, Model model) {
+        List<Agente> agentes;
+
+        if (nome != null && !nome.isBlank()) {
+            agentes = agenteService.buscarPorNome(nome);
+        } else {
+            agentes = agenteService.listarAgente();
+        }
+
+        model.addAttribute("agentes", agentes);
         model.addAttribute("pageTitle", "Agentes - Sistema");
         model.addAttribute("activePage", "agentes");
+        model.addAttribute("nome", nome); // para manter texto do input na view
+
         return "agentes/lista";
     }
 
-    // Exibe formulário para criar novo agente
+
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("agente", new Agente());
@@ -34,14 +44,12 @@ public class AgenteWebController {
         return "agentes/form";
     }
 
-    // Salva ou atualiza agente
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Agente agente) {
         agenteService.cadastrarAgente(agente); // service já salva ou atualiza
         return "redirect:/web/agentes";
     }
 
-    // Edita agente existente
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable UUID id, Model model) {
         var agente = agenteService.buscarAgentePorId(id).orElse(new Agente());
@@ -51,7 +59,6 @@ public class AgenteWebController {
         return "agentes/form";
     }
 
-    // Detalhes do agente
     @GetMapping("/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
         var agente = agenteService.buscarAgentePorId(id).orElse(new Agente());
@@ -61,7 +68,6 @@ public class AgenteWebController {
         return "agentes/detalhe";
     }
 
-    // Excluir agente
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable UUID id) {
         agenteService.excluirAgente(id);

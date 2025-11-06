@@ -28,7 +28,15 @@
             </tbody>
         </table>
     </div>
-    <a href="/web/agentes/novo" class="btn btn-floating">Novo Agente</a>
+    <div class="actions-bar">
+        <form th:action="@{/web/agentes}" method="get" class="search">
+            <input type="text" name="nome" placeholder="Buscar agentes por nome"
+                   th:value="${nome}" />
+            <button type="submit" class="btn btn-buscar">Buscar</button>
+        </form>
+        <a href="/web/agentes/novo" class="btn btn-floating">Novo Agente</a>
+    </div>
+
 </div>
 </body>
 </html>

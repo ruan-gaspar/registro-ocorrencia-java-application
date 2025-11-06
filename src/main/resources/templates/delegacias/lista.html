@@ -31,6 +31,14 @@
             </tbody>
         </table>
         <a href="/web/delegacias/novo" class="btn btn-floating">Nova Delegacia</a>
+        <div class="actions-bar">
+            <form th:action="@{/web/delegacias}" method="get" class="search">
+                <input type="text" name="nome" placeholder="Buscar delegacias"
+                       th:value="${nome}" />
+                <button type="submit" class="btn btn-buscar">Buscar</button>
+            </form>
+
+        </div>
     </div>
 </div>
 </body>
