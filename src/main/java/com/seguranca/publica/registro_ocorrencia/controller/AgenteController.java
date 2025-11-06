@@ -1,7 +1,7 @@
 package com.seguranca.publica.registro_ocorrencia.controller;
 
-import com.seguranca.publica.registro_ocorrencia.model.AgenteResponsavel;
-import com.seguranca.publica.registro_ocorrencia.service.AgenteResponsavelService;
+import com.seguranca.publica.registro_ocorrencia.model.Agente;
+import com.seguranca.publica.registro_ocorrencia.service.AgenteService;
 import io.swagger.v3.oas.annotations.Operation;            // Modificação: imports para anotações
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -16,17 +16,17 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/agentes")
 @Tag(name = "Agente Responsavel", description = "Endpoints para gerenciamento de agentes responsáveis")  // Tag geral do controller
-public class AgenteResponsavelController {
-    private final AgenteResponsavelService agenteResponsavelService;
+public class AgenteController {
+    private final AgenteService agenteService;
 
-    public AgenteResponsavelController(AgenteResponsavelService agenteResponsavelService) {
-        this.agenteResponsavelService = agenteResponsavelService;
+    public AgenteController(AgenteService agenteService) {
+        this.agenteService = agenteService;
     }
 
     @GetMapping
     @Operation(summary = "Lista todos os agentes")
-    public List<AgenteResponsavel> listar() {
-        return agenteResponsavelService.listarAgentes();
+    public List<Agente> listar() {
+        return agenteService.listarAgente();
     }
 
     @GetMapping("/{id}")
@@ -35,9 +35,9 @@ public class AgenteResponsavelController {
             @ApiResponse(responseCode = "200", description = "Agente encontrado"),
             @ApiResponse(responseCode = "404", description = "Agente não encontrado")
     })
-    public ResponseEntity<AgenteResponsavel> buscarPorId(
+    public ResponseEntity<Agente> buscarPorId(
             @Parameter(description = "ID do agente") @PathVariable UUID id) {
-        return agenteResponsavelService.buscarAgentePorId(id)
+        return agenteService.buscarAgentePorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -45,9 +45,9 @@ public class AgenteResponsavelController {
     @PostMapping
     @Operation(summary = "Cadastra novo agente")
     @ApiResponse(responseCode = "200", description = "Agente cadastrado com sucesso")
-    public AgenteResponsavel cadastrar(
-            @Parameter(description = "Objeto agente a ser cadastrado") @RequestBody AgenteResponsavel agenteResponsavel) {
-        return agenteResponsavelService.cadastrarAgente(agenteResponsavel);
+    public Agente cadastrar(
+            @Parameter(description = "Objeto agente a ser cadastrado") @RequestBody Agente agente) {
+        return agenteService.cadastrarAgente(agente);
     }
 
     @PutMapping("/{id}")
@@ -56,13 +56,13 @@ public class AgenteResponsavelController {
             @ApiResponse(responseCode = "200", description = "Agente atualizado com sucesso"),
             @ApiResponse(responseCode = "404", description = "Agente não encontrado para atualização")
     })
-    public ResponseEntity<AgenteResponsavel> atualizar(
+    public ResponseEntity<Agente> atualizar(
             @Parameter(description = "ID do agente a ser atualizado") @PathVariable UUID id,
-            @Parameter(description = "Novo dados do agente") @RequestBody AgenteResponsavel agenteResponsavel) {
-        return agenteResponsavelService.buscarAgentePorId(id)
+            @Parameter(description = "Novo dados do agente") @RequestBody Agente agente) {
+        return agenteService.buscarAgentePorId(id)
                 .map(existing -> {
-                    agenteResponsavel.setId(id);
-                    AgenteResponsavel updated = agenteResponsavelService.atualizarAgentes(agenteResponsavel);
+                    agente.setId(id);
+                    Agente updated = agenteService.atualizarAgentes(agente);
                     return ResponseEntity.ok(updated);
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -76,9 +76,9 @@ public class AgenteResponsavelController {
     })
     public ResponseEntity<Void> excluir(
             @Parameter(description = "ID do agente a ser excluído") @PathVariable UUID id) {
-        return agenteResponsavelService.buscarAgentePorId(id)
+        return agenteService.buscarAgentePorId(id)
                 .map(existing -> {
-                    agenteResponsavelService.excluirAgente(id);
+                    agenteService.excluirAgente(id);
                     return ResponseEntity.noContent().<Void>build();
                 })
                 .orElse(ResponseEntity.notFound().build());
