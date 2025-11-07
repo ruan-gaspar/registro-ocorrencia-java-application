@@ -3,33 +3,47 @@
       th:replace="~{fragments/layout :: layout(~{::conteudo})}">
 <body class="body-index">
 <div th:fragment="conteudo" class="home-background home-page">
-    <section class="sites-relacionados">
         <h2>Sites Relacionados da Polícia Militar</h2>
-        <div>
+    <section class="sites-relacionados">
+        <div class="conteudo-bope">
+            <p>
+                CLIQUE EM UM CARD PARA SER REDIRECIONADO AO SITE CORRESPONDENTE. SITES OFICIAIS: BATALHÃO DE OPERAÇÕES POLICIAIS ESPECIAIS | POLÍCIA CIENTÍFICA | GRUPO DE OPERAÇÕES ESPECIAIS | MINISTÉRIO DA DEFESA.
+            </p>
+        </div>
+        <br>
+        <!--
+        <div class="conteudo-texto">
 
-            <a href="https://sepm.rj.gov.br/2015/10/bope-batalhao-de-operacoes-especiais/" target="_blank" style="width: 45%; text-align: center; text-decoration: none; color: inherit; background-color: #1a1a1a; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.7); transition: transform 0.2s;">
-                <img src="./css/images/Do-crime-para-a-seguranca-o-que-e-apreendido-e-retorna-para-a-sociedade-simulacao-960x540.webp" alt="BOPE" style="width: 100%; max-height: 180px; object-fit: contain; margin-bottom: 12px;"/>
+           <p>
+               A Operação Contenção, realizada em outubro de 2025, foi uma megaoperação policial no Rio de Janeiro contra a facção Comando Vermelho, principalmente nos complexos do Alemão e da Penha. Participaram cerca de 2.500 agentes, entre policiais civis e militares, incluindo o BOPE. A tática central, chamada "muro do BOPE", consistiu em encurralar traficantes na Serra da Misericórdia, cortando suas rotas de fuga. Durante a ação, intensos confrontos deixaram 121 mortos, sendo quatro policiais, e 113 presos. Muitos dos mortos tinham ficha criminal ou mandados de prisão em aberto. A operação gerou debates sobre violência e direitos humanos, sobretudo após relatos de execuções e corpos encontrados com sinais de tortura. Apesar das críticas, o BOPE reforçou seu compromisso de proteger a sociedade. Essa operação é considerada a mais letal da história do estado e marcou um duro golpe contra o Comando Vermelho, enfraquecendo sua liderança e estrutura armada.
+           </p>
+
+        </div>
+        -->
+        <div class="cards-container">
+
+            <a href="https://sepm.rj.gov.br/2015/10/bope-batalhao-de-operacoes-especiais/" target="_blank" class="card-link">
+                <img src="./css/images/Do-crime-para-a-seguranca-o-que-e-apreendido-e-retorna-para-a-sociedade-simulacao-960x540.webp" alt="BOPE" class="card-image" />
                 <div>BOPE</div>
             </a>
 
-            <a href="https://www.policiacientifica.sp.gov.br/iml/consultadesaparecidos" target="_blank" style="width: 45%; text-align: center; text-decoration: none; color: inherit; background-color: #1a1a1a; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.7); transition: transform 0.2s;">
-                <img src="./css/images/B0E04414B194CECE44BD9A629A24E805F6E0_cientifica.jpg" alt="Polícia Científica" style="width: 100%; max-height: 180px; object-fit: contain; margin-bottom: 12px;" />
+            <a href="https://www.policiacientifica.sp.gov.br/iml/consultadesaparecidos" target="_blank" class="card-link">
+                <img src="./css/images/B0E04414B194CECE44BD9A629A24E805F6E0_cientifica.jpg" alt="Polícia Científica" class="card-image" />
                 <div>Polícia Científica</div>
             </a>
 
-            <a href="https://egoesp.com/ocorrencias_policiais.php" target="_blank" style="width: 45%; text-align: center; text-decoration: none; color: inherit; background-color: #1a1a1a; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.7); transition: transform 0.2s;">
-                <img src="./css/images/images.jpeg" alt="GOE" style="width: 100%; max-height: 180px; object-fit: contain; margin-bottom: 12px;" />
+            <a href="https://egoesp.com/ocorrencias_policiais.php" target="_blank" class="card-link">
+                <img src="./css/images/images.jpeg" alt="GOE" class="card-image" />
                 <div>GOE</div>
             </a>
 
-            <a href="https://www.gov.br/defesa/pt-br" target="_blank" style="width: 45%; text-align: center; text-decoration: none; color: inherit; background-color: #1a1a1a; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.7); transition: transform 0.2s;">
-                <img src="./css/images/109435284-rio-de-janeiro-rj-12122024-operacao-realizada-pelos-fuzileiros-navais-na-regiao-onde-s.avif" alt="Ministério da Defesa" style="width: 100%; max-height: 180px; object-fit: contain; margin-bottom: 12px;" />
+            <a href="https://www.gov.br/defesa/pt-br" target="_blank" class="card-link">
+                <img src="./css/images/109435284-rio-de-janeiro-rj-12122024-operacao-realizada-pelos-fuzileiros-navais-na-regiao-onde-s.avif" alt="Ministério da Defesa" class="card-image" />
                 <div>Ministério da Defesa</div>
             </a>
 
         </div>
     </section>
-    <br>
     <section class="grafico-ocorrencias-container">
         <h2>Resumo das Ocorrências</h2>
         <canvas id="graficoOcorrencias" class="grafico-ocorrencias-canvas"></canvas>

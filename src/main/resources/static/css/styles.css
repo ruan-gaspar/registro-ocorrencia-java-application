@@ -15,8 +15,8 @@
 body {
     background-color: #000000;
     background-image:
-            linear-gradient(90deg, transparent 50%, #414143 50.5%, transparent 51%),
-            linear-gradient(0deg, transparent 50%, #414143 50.5%, transparent 51%);
+            linear-gradient(90deg, transparent 50%, #414143 50.5%, transparent 50.2%),
+            linear-gradient(0deg, transparent 50%, #414143 50.5%, transparent 50.2%);
     background-size: 720px 720px;
     background-position: 0 0;
     background-repeat: repeat;
@@ -395,23 +395,121 @@ body.login-page .overlay {
     height: 800px;
     display: block;
 }
-.sites-relacionados{
-    max-width: 900px;
+.sites-relacionados {
+    display: flex;
+    flex-wrap: nowrap; /* impede quebra de linha para manter lado a lado */
+    gap: 20px;
+    align-items: flex-start; /* alinha topo do texto e dos cards */
+    max-width: 1920px;
     margin: 40px auto;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: flex-start; /* cards não centralizados */
 }
+
 .sites-relacionados > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px; /* opcional para espaçamento entre os cards */
+    gap: 20px;
 }
+
 .sites-relacionados > div a {
-    flex: 0 1 calc(50% - 10px); /* largura aproximada para 2 cards por linha com espaçamento */
+    flex: 0 1 calc(50% - 10px);
     box-sizing: border-box;
-    margin-bottom: 20px; /* para espaçar as fileiras */
+    margin-bottom: 20px;
 }
+
 .sites-relacionados > h2 {
     text-align: center;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 200px;
+    align-items: flex-end;
+}
+
+.card-link {
+    width: 45%;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.7);
+    transition: transform 0.2s;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-link:hover {
+    transform: scale(1.03);
+}
+
+.card-image {
+    margin-left: 50px;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.conteudo-texto {
+    flex: 0 0 30%;
+    max-width: 300px;
+    margin-bottom: 0;
+    color: #ff0000;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #ff0000;
+    padding: 15px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow:
+            0 0 10px #ff0000,
+            inset 0 0 8px #ff0000;
+    border-radius: 8px 0 8px 0;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.sites-relacionados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.conteudo-texto {
+    flex: 1 1 40%;
+    margin-bottom: 0;
+}
+
+.cards-container {
+    flex: 1 1 55%;
+}
+.conteudo-bope {
+    flex: 0 0 30%;
+    max-width: 300px;
+    margin-bottom: 0;
+    color: #ff0000;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #ff0000;
+    padding: 15px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow:
+            0 0 10px #ff0000,
+            inset 0 0 8px #ff0000;
+    border-radius: 8px 0 8px 0;
+    box-sizing: border-box;
+    height: auto;
 }
