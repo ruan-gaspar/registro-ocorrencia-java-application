@@ -39,4 +39,14 @@ public class OcorrenciaService {
     public void excluir(UUID id) {
         ocorrenciaRepository.deleteById(id);
     }
+    @Transactional
+    public long contarTodas() {
+        return ocorrenciaRepository.count();
+    }
+
+    @Transactional
+    public long contarPorStatus(boolean concluida) {
+        return ocorrenciaRepository.countByStatusConcluido(concluida);
+    }
+
 }

@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, UUID> {
     List<Ocorrencia> findByTituloContainingIgnoreCase(String titulo);
+    long countByStatusConcluido(boolean statusConcluido);
 }
